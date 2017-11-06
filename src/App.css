@@ -1,10 +1,15 @@
+body {
+  background-color: #f4dcc7;
+}
+
 header {
   font-family: 'Comfortaa', cursive;
   padding: 3rem;
+  color: #925830;
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 table {
@@ -18,25 +23,30 @@ table {
 table #result {
   text-align: right;
   padding: 0;
+  background-color: #f4dcc7;
+  color: #925830;
 }
 
 table #result h3 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   line-height: 1;
   padding: 1rem .25rem;
   font-family: 'Source Code Pro', monospace;
 }
 
 table, tr, td {
-  border: 4px solid #000;
+  border: 4px solid #780303;
   padding: 0;
 }
 
 td button {
   display: block;
   width: 100%;
-  background: #fff;
+  height: 100%;
+  background-color: #f4dcc7;
+  color: #780303;
   border: none;
   margin: 0;
 }

@@ -4,6 +4,8 @@ export default ({
   onClick,
   performCalc,
   addDecimal,
+  onClickParen,
+  clear,
   currOp
 }) => {
   return (
@@ -18,16 +20,21 @@ export default ({
         </thead>
         <tbody>
           <tr>
+            <td><button onClick={clear}>C</button></td>
+            <td><button value="(" onClick={onClickParen}>(</button></td>
+            <td><button value=")" onClick={onClickParen}>)</button></td>
+            <td><button value="-" onClick={onClick}>-</button></td>
+          </tr>
+          <tr>
             <td><button value="1" onClick={onClick}>1</button></td>
             <td><button value="2" onClick={onClick}>2</button></td>
             <td><button value="3" onClick={onClick}>3</button></td>
-            <td><button value="+" onClick={onClick}>+</button></td>
+            <td rowSpan="2"><button value="+" onClick={onClick}>+</button></td>
           </tr>
           <tr>
             <td><button value="4" onClick={onClick}>4</button></td>
             <td><button value="5" onClick={onClick}>5</button></td>
             <td><button value="6" onClick={onClick}>6</button></td>
-            <td><button value="-" onClick={onClick}>-</button></td>
           </tr>
           <tr>
             <td><button value="7" onClick={onClick}>7</button></td>

@@ -9,25 +9,46 @@ class App extends Component {
     currOp: '',
   }
 
-  onClick(e) {
+  onClick({target: {value}}) {
     this.setState({
-      currOp: `${this.state.currOp}${e.target.value}`
+      currOp: `${this.state.currOp}${value}`
     });
   }
 
-  addDecimal(e) {
-    let lastChar = this.state.currOp[this.state.currOp.length - 1]
+  addDecimal({target: {value}}) {
+    let lastChar = this.state.currOp[this.state.currOp.length - 1];
     if ("*-+/".indexOf(lastChar) === -1) {
       this.setState({
-        currOp: `${this.state.currOp}${e.target.value}`
+        currOp: `${this.state.currOp}${value}`
       });
     }
+  }
+
+  clear() {
+    this.setState({
+      currOp: ''
+    });
   }
 
   performCalc() {
     this.setState({
       currOp: String(eval(this.state.currOp))
     });
+  }
+
+  onClickParen({target: {value}}) {
+    let lastChar = this.state.currOp[this.state.currOp.length - 1];
+    if (value === '(' && (this.state.currOp.length === 0 || "*-+/".indexOf(lastChar) !== -1)) {
+      this.setState({
+        currOp: `${this.state.currOp}${value}`
+      });
+    }
+
+    if (value === ')' && this.state.currOp.indexOf('(') !== -1 && "*-+/".indexOf(lastChar) === -1) {
+      this.setState({
+        currOp: `${this.state.currOp}${value}`
+      });
+    }
   }
 
   render() {
@@ -38,6 +59,8 @@ class App extends Component {
         </div>
         <div className="row">
           <Pad
+            clear={this.clear.bind(this)}
+            onClickParen={this.onClickParen.bind(this)}
             addDecimal={this.addDecimal.bind(this)}
             onClick={this.onClick.bind(this)}
             performCalc={this.performCalc.bind(this)}
