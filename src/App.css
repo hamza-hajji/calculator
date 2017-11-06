@@ -6,3 +6,35 @@ header {
 header h1 {
   font-size: 3rem;
 }
+
+table {
+  border-collapse: collapse;
+  font-family: Alegreya;
+  font-size: 2rem;
+  width: 60%;
+  margin: 0 auto;
+}
+
+table #result {
+  height: 3rem;
+}
+
+table, tr, td {
+  border: 2px solid #000;
+}
+
+td button {
+  display: block;
+  width: 100%;
+  background: #fff;
+  border: none;
+  margin: 0;
+}
+
+td button:hover {
+  background: #ccc;
+}
+
+td button:focus {
+  outline: none;
+}
