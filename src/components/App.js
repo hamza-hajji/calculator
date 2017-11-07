@@ -32,7 +32,7 @@ class App extends Component {
 
   addDecimal({target: {value}}) {
     let lastChar = this.state.currOp[this.state.currOp.length - 1];
-    if ("*-+/".indexOf(lastChar) === -1) {
+    if (lastChar !== '.') {
       this.setState({
         currOp: `${this.state.currOp}${value}`
       });
@@ -53,7 +53,7 @@ class App extends Component {
         if (numOfRightParens !== numOfLeftParens) throw new Error();
       }
       this.setState({
-        currOp: String(eval(this.state.currOp))
+        currOp: Number.isInteger(eval(this.state.currOp)) ? String(eval(this.state.currOp)) : eval(this.state.currOp).toFixed(4)
       });
     } catch (e) {
       this.setState({
